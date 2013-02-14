@@ -1,0 +1,70 @@
+#!perl
+
+use IO::All;
+
+sub usage {
+    print <<USAGE;
+usage: $0 [OPTION...] [FILE...]
+       $0 [OPTION...]  # filter mode
+options
+-h, --help           This help message
+-w, --crlf, --CRLF   Output EOL is CRLF (MS-Windows style)
+-u, --lf,   --LF     Output EOL is LF (UNIX-like OS style) *DEFAULT*
+-m, --cr,   --CR     Output EOL is CR (old MacOS style)
+    --backup=EXT     Copy original file with extension EXT
+                     If EXT is omitted, "org" is used
+USAGE
+}
+
+my $backup = "";
+my $eol    = "\x0A";
+@ARGV = grep{
+    unless ( /^-/ ) {
+        1;
+    } else {
+        if ( /^--/ ) {
+            if      ( /^--help$/          ) {
+                usage; exit;
+            } elsif ( /^--CRLF$/i         ) {
+                $eol = "\x0D\x0A";
+            } elsif ( /^--LF$/i           ) {
+                $eol = "\x0A";
+            } elsif ( /^--CR$/i           ) {
+                $eol = "\x0D";
+            } elsif ( /^--backup(=(.*))?/ ) {
+                $backup = $2 || "org";
+            } else {
+                print "Unknown option: $_\n";
+                usage;
+                exit(1);
+            }
+        } else {
+            foreach ( split //, substr $_, 1 ) {
+                /h/i and do{ usage;             exit; };
+                /w/i and do{ $eol = "\x0D\x0A"; next; };
+                /u/i and do{ $eol = "\x0A";     next; };
+                /m/i and do{ $eol = "\x0D";     next; };
+                print "Unknown option: $_\n";
+                usage;
+                exit(1);
+            }
+        }
+        0;
+    }
+} @ARGV;
+
+unless ( @ARGV ) {  # filter mode
+    binmode STDIN , ":crlf";
+    binmode STDOUT, ":raw";
+    while ( <STDIN> ) {
+        chomp;
+        print "$_$eol";
+    }
+} else {
+    for my $file ( @ARGV ) {
+        io($file) > io("$file.$backup")  if length $backup;
+        io($file)->binary > local($_);
+        s/\x0D\x0A|[\x0D\x0A]/$eol/g;
+        $_ > io($file)->binary;
+    }
+}
