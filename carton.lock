@@ -1,0 +1,159 @@
+{
+   "modules" : {
+      "IO::All" : {
+         "dist" : "IO-All-0.46",
+         "mymeta" : {
+            "abstract" : "IO::All of it to Graham and Damian!",
+            "author" : [
+               "Ingy döt Net <ingy@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "IO-All",
+            "no_index" : {
+               "directory" : [
+                  "examples",
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "File::ReadBackwards" : "0"
+                  },
+                  "requires" : {
+                     "IO::String" : "1.08",
+                     "perl" : "5.006001"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "homepage" : "https://github.com/ingydotnet/io-all-pm/tree",
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.46",
+            "x_module_name" : "IO::All"
+         },
+         "name" : "IO::All",
+         "pathname" : "I/IN/INGY/IO-All-0.46.tar.gz",
+         "provides" : {
+            "IO::All" : {
+               "file" : "IO/All.pm",
+               "version" : "0.46"
+            },
+            "IO::All::Base" : {
+               "file" : "IO/All/Base.pm"
+            },
+            "IO::All::DBM" : {
+               "file" : "IO/All/DBM.pm"
+            },
+            "IO::All::Dir" : {
+               "file" : "IO/All/Dir.pm"
+            },
+            "IO::All::File" : {
+               "file" : "IO/All/File.pm"
+            },
+            "IO::All::Filesys" : {
+               "file" : "IO/All/Filesys.pm"
+            },
+            "IO::All::Link" : {
+               "file" : "IO/All/Link.pm"
+            },
+            "IO::All::MLDBM" : {
+               "file" : "IO/All/MLDBM.pm"
+            },
+            "IO::All::Pipe" : {
+               "file" : "IO/All/Pipe.pm"
+            },
+            "IO::All::STDIO" : {
+               "file" : "IO/All/STDIO.pm"
+            },
+            "IO::All::Socket" : {
+               "file" : "IO/All/Socket.pm"
+            },
+            "IO::All::String" : {
+               "file" : "IO/All/String.pm"
+            },
+            "IO::All::Temp" : {
+               "file" : "IO/All/Temp.pm"
+            }
+         },
+         "target" : "IO::All",
+         "version" : "0.46"
+      },
+      "IO::String" : {
+         "dist" : "IO-String-1.08",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "unknown"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "IO-String",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {}
+               }
+            },
+            "release_status" : "stable",
+            "version" : "1.08"
+         },
+         "name" : "IO::String",
+         "pathname" : "G/GA/GAAS/IO-String-1.08.tar.gz",
+         "provides" : {
+            "IO::String" : {
+               "file" : "IO/String.pm",
+               "version" : "1.08"
+            }
+         },
+         "target" : "IO::String",
+         "version" : "1.08"
+      }
+   },
+   "version" : "0.9"
+}
